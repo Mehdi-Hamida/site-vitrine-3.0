@@ -84,8 +84,8 @@ aside ul.nav-links li a:active
     display: flex;
     justify-content: center;
     position: fixed;
-    background: transparent;
-    backdrop-filter: blur(2px);
+    background: rgba(0, 0, 0, 0.8);
+    /* backdrop-filter: blur(2px); */
     max-height: 12vh;
     min-width: 100vw;
     top: 0;
