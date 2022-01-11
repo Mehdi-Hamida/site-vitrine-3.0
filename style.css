@@ -59,6 +59,7 @@ aside ul.nav-links
     max-height: 50px;
     min-width: 500px;
     z-index: 50;
+    opacity: 0.5;
 }
 
 aside ul.nav-links,
@@ -80,7 +81,7 @@ aside ul.nav-links li a:active
 /* Signature - section #accueil */
 #accueil .handwriting
 {
-    max-width: 30%;
+    max-width: 300px;
     display: flex;
     justify-content: center;
     top: 20vh;
