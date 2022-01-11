@@ -1,0 +1,150 @@
+/* Général */
+:root
+{
+    --background-color: #000;
+    --font-color: #fff;
+    --grey-color: rgb(180, 180, 180);
+    --golden-details: darkgoldenrod;
+}
+
+body
+{
+    padding: 0;
+    margin: 0;
+    background-color: var(--background-color);
+    font-size: 1em;
+    color: var(--font-color);
+    scroll-behavior: smooth;/* Remplace la transition on/off au changement de section par un scroll lent */
+}
+
+.particles-js-canvas-el
+{
+    position: fixed;
+    z-index: -1;
+    top: 0;
+}
+
+h1, h2, h3, h4, h5, h6
+{
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+}
+
+#accueil, #presentation, #competences, #projets, #contact
+{
+    height: 100vh;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Menu vertical */
+aside ul.nav-links
+{
+    position: fixed;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
+    float: right;
+    right: 0;
+    transform-origin: right center;/* Point de départ de la rotation ci-dessous */
+    transform: rotate(-90deg) translate(50%,-100%);
+    top: 50%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+    max-height: 50px;
+    min-width: 500px;
+    z-index: 50;
+}
+
+aside ul.nav-links,
+aside ul.nav-links li a
+{
+    text-decoration: none;
+    font-family: 'Playfair Display', serif;
+    color: var(--grey-color);
+    font-weight: 800;
+    letter-spacing: 0.05em;
+}
+
+aside ul.nav-links li a:active
+{
+    color: var(--golden-details);
+    font-weight: 900;
+}
+
+/* Signature - section #accueil */
+#accueil .handwriting
+{
+    max-width: 30%;
+    display: flex;
+    justify-content: center;
+    top: 20vh;
+}
+
+.text
+{
+    stroke-dasharray: 2000;
+    stroke-dashoffset: 2000;
+    animation: animate 6.5s linear 1 forwards;
+}
+
+@keyframes animate
+{
+    to
+    {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* TEST */
+#container {
+	text-align: center;
+}
+
+#text {
+	display: inline-block;
+	vertical-align: middle;
+	color: var(--golden-details);
+	letter-spacing: 2px;
+}
+
+/* #text::after
+{
+    content: " ";
+    border-right: 3px solid #2980b9;
+    animation: blink .75s step-end infinite;
+} */
+
+#typing-text-cursor {
+	display: inline-block;
+	vertical-align: middle;
+	width: 2px;
+	height: 1.5em;
+	background-color: var(--grey-color);
+	animation: blink .75s step-end infinite;
+}
+
+@keyframes blink {
+	from, to { 
+		background-color: transparent 
+	}
+	50% { 
+		background-color: var(--grey-color); 
+	}
+}
+  
+/* Animation clignotement curseur écriture "|" */
+/* @keyframes blink
+{
+    0% {opacity: 1;}
+    40% {opacity: 1;}
+    60% {opacity: 0;}
+    100% {opacity: 0;}
+} */
+
+/* FIN TEST */
