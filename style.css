@@ -59,7 +59,7 @@ aside ul.nav-links
     max-height: 50px;
     min-width: 500px;
     z-index: 50;
-    opacity: 0.3;
+    opacity: 0.5;
 }
 
 aside ul.nav-links,
@@ -79,7 +79,7 @@ aside ul.nav-links li a:active
 }
 
 /* Signature - section #accueil */
-#accueil .handwriting
+header .handwriting
 {
     display: flex;
     justify-content: center;
@@ -88,26 +88,20 @@ aside ul.nav-links li a:active
     /* backdrop-filter: blur(2px); */
     max-height: 12vh;
     min-width: 100vw;
-    top: 0;
+    top: -10px;
 }
 
-#accueil .handwriting svg
+header .handwriting svg
 {
-    position: relative;
-    max-width: 90%;
-    height: 400px;
-    top: -15px;
+    display: flex;
+    justify-content: center;
+    /* position: relative; */
+    /* max-width: 90%;
+    height: 400px; */
+    /* top: -15px; */
 }
 
-#accueil .handwriting svg::after
-{
-    backdrop-filter: blur(5px);
-    width: 100%;
-    height: 20vh;
-    content: "a";
-}
-
-.text
+svg .text /* On peut changer la couleur de la signature, Exemple -> stroke: red; */
 {
     stroke-dasharray: 2000;
     stroke-dashoffset: 2000;
@@ -123,25 +117,38 @@ aside ul.nav-links li a:active
 }
 
 /* TEST */
-#container {
+#container 
+{
 	text-align: center;
 }
 
-#text {
-	display: inline-block;
+#text 
+{
+    /* font-family: serif; */
+    display: inline-block;
 	vertical-align: middle;
 	color: var(--golden-details);
 	letter-spacing: 2px;
 }
 
-/* #text::after
+/* #text::before
 {
-    content: " ";
+    content: "💪";
     border-right: 3px solid #2980b9;
     animation: blink .75s step-end infinite;
 } */
 
-#typing-text-cursor {
+
+#typing-text-container
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#typing-text-cursor
+{
 	display: inline-block;
 	vertical-align: middle;
 	width: 2px;
@@ -150,11 +157,14 @@ aside ul.nav-links li a:active
 	animation: blink .75s step-end infinite;
 }
 
-@keyframes blink {
-	from, to { 
+@keyframes blink
+{
+	from, to
+    { 
 		background-color: transparent 
 	}
-	50% { 
+	50%
+    { 
 		background-color: var(--grey-color); 
 	}
 }
