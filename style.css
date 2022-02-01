@@ -3,7 +3,7 @@
 {
     --background-color: #000;
     --font-color: #fff;
-    --grey-color: rgb(180, 180, 180);
+    --grey-color: rgb(151, 151, 151);
     --golden-details: darkgoldenrod;
 }
 
@@ -12,12 +12,13 @@ body
     padding: 0;
     margin: 0;
     background-color: var(--background-color);
-    font-size: 1em;
+    font-size: 1rem;
     color: var(--font-color);
     scroll-behavior: smooth;/* Remplace la transition on/off au changement de section par un scroll lent */
 }
 
-.particles-js-canvas-el
+/* Propriétés du background animé */
+main .particles-js-canvas-el
 {
     position: fixed;
     z-index: -1;
@@ -30,7 +31,7 @@ h1, h2, h3, h4, h5, h6
     font-weight: 900;
 }
 
-#accueil, #presentation, #competences, #projets, #contact
+section#accueil, section#presentation, section#competences, section#projets, section#contact
 {
     height: 100vh;
     text-align: center;
@@ -39,8 +40,62 @@ h1, h2, h3, h4, h5, h6
     justify-content: center;
 }
 
-/* Menu vertical */
-aside ul.nav-links
+/* section#accueil, */
+/* section#presentation
+{
+    height: 100vh;
+} */
+
+/* #accueil-flex
+{
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+} */
+
+/*----------HEADER----------*/
+header .handwriting
+{
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(1px);
+    max-height: 12vh;
+    min-width: 100vw;
+    top: -10px;
+}
+
+header .handwriting svg
+{
+    display: flex;
+    justify-content: center;
+    left: -9.5px; /* Combler décalage gauche entre parent svg et enfant text */
+    position: relative;
+    /* max-width: 90%;
+    height: 400px; */
+    /* top: -15px; */
+}
+
+header .handwriting svg .text /* On peut changer la couleur de la signature, Exemple -> stroke: red; */
+{
+    stroke-dasharray: 2000;
+    stroke-dashoffset: 2000;
+    animation: animate 5.5s linear 1 forwards;
+}
+
+@keyframes animate
+{
+    to
+    {
+        stroke-dashoffset: 0;
+    }
+}
+
+/*----------NAVBAR VERTICALE----------*/
+aside nav ul.nav-links
 {
     position: fixed;
     display: flex;
@@ -62,98 +117,49 @@ aside ul.nav-links
     opacity: 0.5;
 }
 
-aside ul.nav-links,
-aside ul.nav-links li a
+aside nav ul.nav-links,
+aside nav ul.nav-links li a
 {
     text-decoration: none;
-    font-family: 'Playfair Display', serif;
+    /* font-family: 'Playfair Display', serif; */
+    font-family: 'Lato', sans-serif;
+    font-weight: 100;
     color: var(--grey-color);
     font-weight: 800;
     letter-spacing: 0.05em;
 }
 
-aside ul.nav-links li a:active
+aside nav ul.nav-links li a:active
 {
     color: var(--golden-details);
     font-weight: 900;
 }
 
-/* Signature - section #accueil */
-header .handwriting
+/*----------ANIMATION TYPING TEXT----------*/
+.typing-text
 {
-    display: flex;
-    justify-content: center;
-    position: fixed;
-    background: rgba(0, 0, 0, 0.8);
-    /* backdrop-filter: blur(2px); */
-    max-height: 12vh;
-    min-width: 100vw;
-    top: -10px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
 }
 
-header .handwriting svg
+section#presentation #passions-typing-text,
+section#competences #languages-typing-text
 {
-    display: flex;
-    justify-content: center;
-    /* position: relative; */
-    /* max-width: 90%;
-    height: 400px; */
-    /* top: -15px; */
-}
-
-svg .text /* On peut changer la couleur de la signature, Exemple -> stroke: red; */
-{
-    stroke-dasharray: 2000;
-    stroke-dashoffset: 2000;
-    animation: animate 6.5s linear 1 forwards;
-}
-
-@keyframes animate
-{
-    to
-    {
-        stroke-dashoffset: 0;
-    }
-}
-
-/* TEST */
-#container 
-{
-	text-align: center;
-}
-
-#text 
-{
-    /* font-family: serif; */
     display: inline-block;
 	vertical-align: middle;
 	color: var(--golden-details);
-	letter-spacing: 2px;
+	letter-spacing: 1px;
 }
 
-/* #text::before
-{
-    content: "💪";
-    border-right: 3px solid #2980b9;
-    animation: blink .75s step-end infinite;
-} */
-
-
-#typing-text-container
-{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-#typing-text-cursor
+/* Curseur animé */
+section#presentation .typing-text-cursor,
+section#competences .typing-text-cursor
 {
 	display: inline-block;
 	vertical-align: middle;
 	width: 2px;
 	height: 1.5em;
-	background-color: var(--grey-color);
+	background-color: rgb(180, 180, 180);
 	animation: blink .75s step-end infinite;
 }
 
@@ -168,14 +174,53 @@ svg .text /* On peut changer la couleur de la signature, Exemple -> stroke: red;
 		background-color: var(--grey-color); 
 	}
 }
-  
-/* Animation clignotement curseur écriture "|" */
-/* @keyframes blink
-{
-    0% {opacity: 1;}
-    40% {opacity: 1;}
-    60% {opacity: 0;}
-    100% {opacity: 0;}
-} */
 
-/* FIN TEST */
+/*----------SECTION ACCUEIL----------*/
+section#accueil
+{
+    flex-direction: column;
+}
+
+section#accueil h1
+{
+    color: var(--golden-details);
+    font-size: 2.2rem;
+    margin-bottom: 0;
+}
+
+section#accueil #lyon
+{
+    color: var(--golden-details);
+    font-size: 1.7rem;
+    font-family: 'Playfair Display';
+    font-weight: 900;
+    margin-top: 0;
+}
+
+/*----------SECTION PRESENTATION----------*/
+section#presentation .typing-text-container
+{
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: center; */
+    /* vertical-align: middle; */
+    /* flex-wrap: wrap; */
+    /* position: relative; */
+    font-size: 0.9rem;
+    /* text-align: left !important; */
+    top: 20%;
+    margin-left: 2%;
+}
+
+/*----------SECTION COMPETENCES----------*/
+section#competences .typing-text-container
+{
+    /* display: flex; */
+    /* align-items: center;
+    justify-content: center; */
+    /* flex-wrap: wrap; */
+    /* position: relative; */
+    text-align: left !important;
+    /* top: 20%; */
+    /* margin-left: 5%; */
+}
